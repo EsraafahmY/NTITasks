@@ -12,7 +12,6 @@ showHide.addEventListener('click', function(e){
 // let addTaskBtn = document.querySelector('#addTaskBtn')
 
 myAddForm.addEventListener('submit', function(e){
-if(addTaskBtn.textContent =="add Task"){
     e.preventDefault()
     let task = { status:false }
     formHeads.forEach(h => {
@@ -20,5 +19,5 @@ if(addTaskBtn.textContent =="add Task"){
     })
     console.log(task)
     addTask(task)
-}
+
 })

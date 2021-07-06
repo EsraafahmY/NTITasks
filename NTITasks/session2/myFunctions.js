@@ -47,7 +47,7 @@ showSingleTask = (element, i)=>{
     btn1.addEventListener('click', function(e){ deletebtn(element.ind, e)})
     btn2 = createCustomElements(mainDiv2,'button','btn btn-warning mx-2','edit', [])
     btn2.addEventListener('click', function(e){// alert (i)
-    editbtn(i)})
+    editbtn(i , e)})
     btn3 = createCustomElements(mainDiv2,'button','btn btn-primary mx-2','change status', [])
     btn3.addEventListener('click', function(e){ changeStatus(i) })
 }
@@ -66,6 +66,7 @@ saveAllTasks = ( ) =>{
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 deletebtn = (ind, e) =>{
+    debugger
     (e.target.parentNode).parentNode.remove()
     tasks = tasks.filter(el=> el.ind!=ind)
    saveAllTasks(tasks)
@@ -84,35 +85,46 @@ addTask = (task) =>{
     showSingleTask(task, tasks.length-1)
 }
 
-editbtn=(i)=>{
-    // alert(i)
-    alert(tasks[i].startDate)
-    form_div.classList.toggle('d-none')
-    // showHide.textContent == "Show" ? this.textContent='Hide': this.textContent='Show'
-    addTaskBtn.textContent = "Edit Task"
-   showHide.textContent="Hide"
-   taskContent.value = tasks[i].taskContent
+editbtn = (i, e) =>{
+    // alert(tasks[i].taskContent)
+    showHide.click()
+    showHide.textContent = "Hide"
+    addTaskBtn.textContent = "Edit"
+    ShowEditData(i ,e)
+}
+
+ShowEditData=(i ,e)=>{
+    // alert(tasks[i].taskContent)
+   taskContent.textContent = tasks[i].taskContent
    taskTitle.value = tasks[i].taskTitle
-   taskType.value = tasks[i].taskType
-   startDate.value = tasks[i].startDate
-   dueDate.value = tasks[i].dueDate
+//    taskType.value = tasks[i].taskType
+   startDate.textContent = tasks[i].startDate
+   dueDate.textContent = tasks[i].dueDate
+   deletebtn(i,e)
    console.log(tasks[i].startDate)
-   myAddForm.reset()
+//    myAddForm.reset()
 //    showEditTask(tasks[i])  
 }
 
-addTaskBtn.addEventListener('click', function(e){
-   saveEditData(i)
+// addTaskBtn.addEventListener('click',function(e){
+//     this.textContent == "Edit" ? this.textContent='Add Task': this.textContent='Edit'
+//     deletebtn(i,e)
+//     console.log(tasks[i])
+//    addTask(tasks[i])
+// })
 
-})
+// addTaskBtn.addEventListener('click', function(e){
+//    saveEditData(i)
 
-saveEditData = (i) =>{
-  //  if(addTaskBtn.textContent =="Edit Task"){
-    alert(taskContent.textContent)
-    console.log(taskContent.textContent)
-//     form_div.classList.toggle('d-none')
-//     addTaskBtn.textContent = "Add Task"
-//    showHide.textContent="Show"
-//     tasks[i].taskContent = taskContent.value
-   // }
-}
+// })
+
+// saveEditData = (i) =>{
+//   //  if(addTaskBtn.textContent =="Edit Task"){
+//     alert(taskContent.textContent)
+//     console.log(taskContent.textContent)
+// //     form_div.classList.toggle('d-none')
+// //     addTaskBtn.textContent = "Add Task"
+// //    showHide.textContent="Show"
+// //     tasks[i].taskContent = taskContent.value
+//    // }
+// }
