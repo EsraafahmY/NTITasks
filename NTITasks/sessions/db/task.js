@@ -8,26 +8,7 @@ useNewUrlParser:true,
 useUnifiedTopology:true
 })
 
-const Task = mongoose.model('Task', {
-    title:{
-        type:String,
-        trim:true,
-        lowercase:true,
-        unique:true,
-        required:[true, 'must have a title']
-    },
-    content:{
-        type:String,
-        // trim:true,
-        lowercase:true,
-        unique:true,
-        required:true
-    },
-    description:{
-        type:String,
-        // trim:true,
-    }
-})
+
 
 let taskData = new Task({
     title:"Mongo Task",

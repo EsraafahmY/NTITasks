@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-
 const User = mongoose.model('User', {
     name:{
         type:String,
         trim:true,
         lowercase:true,
         unique:true,
-        required:[true, 'must have a nae']
+        required:[true, 'must have a name']
     },
     email:{
         type:String,
@@ -16,10 +15,11 @@ const User = mongoose.model('User', {
         lowercase:true,
         unique:true,
         required:true,
+        minLength:10,
+        maxLength:50,
         validate(value){
             if(!validator.isEmail(value)) throw new Error ('invalid email')
-        }
-
+        }      
     },
     password:{
         type:String,
@@ -27,12 +27,10 @@ const User = mongoose.model('User', {
         required:true
     },
     gender:{
-        type:String,
+        type: String,
         trim:true,
+        lowercase:true,
         enum:['male', 'female']
     }
 })
-
 module.exports=User
-
-mode
