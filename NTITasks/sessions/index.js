@@ -1,2 +1,6 @@
 const app = require('./src/app')
-app.listen(3000)
+const express= require('express')
+
+app.use(express.json()) // urlencoded
+
+app.listen(2000)
