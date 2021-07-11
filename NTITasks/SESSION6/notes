@@ -1,0 +1,5 @@
+model => schema (hold methods) => model
+
+user => encrypt pass => bcryptjs => 
+
+login => static => method genertae  => auth
