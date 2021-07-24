@@ -3,4 +3,4 @@ const express= require('express')
 
 app.use(express.json()) // urlencoded
 
-app.listen(2000)
+app.listen(5000)
