@@ -1,0 +1,35 @@
+<div class="form">
+  <div class="form__box">
+    <div class="form__right">
+      <div class="form__padding-right">
+        
+        <form [formGroup]="userData" (ngSubmit)="loginUser()">
+          <h1 class="form__title">Member Login</h1>
+          <div class="form__title" *ngIf="msg!=''">
+            data: {{msg}}
+          </div>
+          <input class="form__email" type="text" placeholder="Email" formControlName="email">
+          <div class="alert alert-danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+            <div *ngIf="email?.errors?.required">
+              email is required
+            </div>
+            <div *ngIf="email?.errors?.email">
+              email invalid format
+            </div>
+          </div>
+          <input class="form__password" type="text" placeholder="******" formControlName="password">
+          <div class="alert alert-danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <div *ngIf="password?.errors?.required">
+              password is required
+            </div>
+            <div *ngIf="password?.errors?.minlength">
+              min length error
+            </div>
+          </div>
+          
+          <input class="form__submit-btn" type="submit" value="Login"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

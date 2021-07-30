@@ -4,7 +4,6 @@ class Userx{
         try{
             const userData = new User(req.body)
             await userData.save()
-            //send email==>
             res.status(200).send({
                 apiStatus: true,
                 data: userData,
@@ -88,27 +87,27 @@ class Userx{
         })
     }
 
-    static activateUser = async(req,res)=>{
-        try{
-            const userData = await User.findOne({otp:req.params.otp , userStatus: false})
-            if(!userData) throw new Error('no users to activate')
-            userData.userStatus = true
-            userData.otp=""
-            await userData.save()
-            res.status(200).send({
-                apiStatus: true,
-                data: userData,
-                message:"activated"
-            })
-        }
-        catch(e){
-            res.status(500).send({
-                apiStatus:false,
-                data: e.message, 
-                message:'error'
-            })
-        }
-    }
+    // static activateUser = async(req,res)=>{
+    //     try{
+    //         const userData = await User.findOne({otp:req.params.otp , userStatus: false})
+    //         if(!userData) throw new Error('no users to activate')
+    //         userData.userStatus = true
+    //         userData.otp=""
+    //         await userData.save()
+    //         res.status(200).send({
+    //             apiStatus: true,
+    //             data: userData,
+    //             message:"activated"
+    //         })
+    //     }
+    //     catch(e){
+    //         res.status(500).send({
+    //             apiStatus:false,
+    //             data: e.message, 
+    //             message:'error'
+    //         })
+    //     }
+    // }
 
     static showAll =async(req,res)=>{
         try{
@@ -119,13 +118,13 @@ class Userx{
     res.send(e)
         }
     }
-    static profileImage = async (req, res) =>{
-        req.user.image = req.file.path
-        await req.user.save()
-        res.send({
-            data: req.user
-        })
-   }
+//     static profileImage = async (req, res) =>{
+//         req.user.image = req.file.path
+//         await req.user.save()
+//         res.send({
+//             data: req.user
+//         })
+//    }
 }
 
 module.exports = Userx
