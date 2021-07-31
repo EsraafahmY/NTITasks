@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DependentComponent } from './dependent.component';
+import { AdddependentComponent } from './adddependent.component';
 
-describe('DependentComponent', () => {
-  let component: DependentComponent;
-  let fixture: ComponentFixture<DependentComponent>;
+describe('AdddependentComponent', () => {
+  let component: AdddependentComponent;
+  let fixture: ComponentFixture<AdddependentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DependentComponent ]
+      declarations: [ AdddependentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DependentComponent);
+    fixture = TestBed.createComponent(AdddependentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

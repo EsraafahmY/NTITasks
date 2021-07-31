@@ -11,6 +11,7 @@ router.post('/login', userController.login)
 router.post('/logout', auth,userController.logout)
 router.post('/logoutAll', auth,userController.logoutAll)
 router.post('/me', auth,userController.me)
+router.get('/showAll' , userController.showAll)
 
 // router.post('/profile',auth, upload.single('profile'), userController.profileImage)
 

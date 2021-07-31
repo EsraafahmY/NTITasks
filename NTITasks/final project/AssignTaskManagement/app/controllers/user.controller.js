@@ -23,6 +23,7 @@ class Userx{
         try{
             const userData = await User.findByCreditionals(req.body.email, req.body.password)
             const token = await userData.generateToken()
+            token = "bearer " + token
             res.status(200).send({
                 apiStatus:true,
                 data:{userData, token},

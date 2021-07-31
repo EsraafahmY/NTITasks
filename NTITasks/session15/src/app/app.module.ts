@@ -17,9 +17,10 @@ import { NavbarComponent } from './shares/navbar/navbar.component';
 import { UserInterceptor } from './providers/user.interceptor';
 import { EditComponent } from './userprofile/edit/edit.component';
 import { EditfilesComponent } from './userprofile/editfiles/editfiles.component';
-// import { AdddependentComponent } from './userprofile/dependent/adddependent/adddependent.component';
 import { LoadreservationComponent } from './userprofile/loadreservation/loadreservation.component';
-
+import { AdddependentComponent } from './pages/userprofile/dependent/adddependent/adddependent.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+// import { PaginationComponent } from './pagination/pagination.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +29,14 @@ import { LoadreservationComponent } from './userprofile/loadreservation/loadrese
     NavbarComponent,
     EditComponent,
     EditfilesComponent,
-    // AdddependentComponent,
-    LoadreservationComponent
+    LoadreservationComponent,
+    AdddependentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxPaginationModule,
+    // PaginationComponent,
     
     HttpClientModule,
     FormsModule,
